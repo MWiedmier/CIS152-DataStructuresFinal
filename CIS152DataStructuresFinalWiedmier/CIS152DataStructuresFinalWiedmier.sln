@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.33214.272
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIS152DataStructuresFinalWiedmier", "CIS152DataStructuresFinalWiedmier\CIS152DataStructuresFinalWiedmier.csproj", "{0F18FCE1-77B0-44A6-8328-62ADE6140ECC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CIS152DataStructuresFinalWiedmierUnitTests", "CIS152DataStructuresFinalWiedmierUnitTests\CIS152DataStructuresFinalWiedmierUnitTests.csproj", "{F85FFD09-92AA-4420-B067-E784F036E447}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{0F18FCE1-77B0-44A6-8328-62ADE6140ECC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F18FCE1-77B0-44A6-8328-62ADE6140ECC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F18FCE1-77B0-44A6-8328-62ADE6140ECC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F85FFD09-92AA-4420-B067-E784F036E447}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F85FFD09-92AA-4420-B067-E784F036E447}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F85FFD09-92AA-4420-B067-E784F036E447}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F85FFD09-92AA-4420-B067-E784F036E447}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
