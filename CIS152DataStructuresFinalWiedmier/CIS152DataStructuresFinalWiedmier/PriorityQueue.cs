@@ -44,14 +44,10 @@ namespace CIS152DataStructuresFinalWiedmier
         * Input: 
         * Output: node newData
         ***************************************************************/
-        public Node newNode(string name, string reservationType, string day, int people, string phonenumber)
+        public Node newNode(Reservation inputData)
         {
             Node newData = new Node();
-            newData.data.ReservationName = name;
-            newData.data.TypeOfReservation = reservationType;
-            newData.data.DayOfWeek = day;
-            newData.data.NumOfPeople = people;
-            newData.data.PhoneNumber = phonenumber;
+            newData.data = inputData;
 
             return newData;
         }
@@ -257,43 +253,32 @@ namespace CIS152DataStructuresFinalWiedmier
             }
         }
 
-        //      /**************************************************************
-        //* Name: printQueue
-        //* Description: This method prints the elements of the queue. If queue is empty will throw an empty exception.
-        //* Input: 
-        //* Output: string queueString
-        //***************************************************************/
-        //      public string printQueue()
-        //      {
+        /**************************************************************
+        * Name: printQueue
+        * Description: This method prints the elements of the queue. If queue is empty will throw an empty exception.
+        * Input: 
+        * Output: string queueString
+        ***************************************************************/
+        public string printQueue()
+        {
 
-        //          if (!this.isEmpty())
-        //          {
-        //              string queueString = "";
+            if (!this.isEmpty())
+            {
+                string queueString = "";
 
-        //              foreach (Node str in pQueue)
-        //              {
-        //                  queueString = queueString + "Job Number " + str.jobNumber + ", Job Priority " + str.priority + "\n";
-        //              }
-        //              return queueString;
-        //          }
-        //          else
-        //          {
-        //              throw new queueEmptyException();
-        //          }
-        //      }
+                foreach (Node str in pQueue)
+                {
+                    queueString = queueString + "Reservation Name: " + str.data.ReservationName + ", Reservation Day " + str.data.DayOfWeek + ", Reservation Type " + str.data.TypeOfReservation + "\n";
+                }
+                return queueString;
+            }
+            else
+            {
+                throw new queueEmptyException();
+            }
+        }
 
-  //      /**************************************************************
-		//* Name: printQueue
-		//* Description: This method prints the elements of the queue. If queue is empty will throw an empty exception.
-		//* Input: 
-		//* Output: string queueString
-		//***************************************************************/
-  //      public List<Node> returnNodes(string tableFilter)
-  //      {
-  //          List<Node> nodeList = new List<Node>();
-  //          nodeList = DaysOfWeek.returnList(tableFilter);
-  //          return nodeList;
-  //      }
+        
 
 
     }
