@@ -93,6 +93,7 @@ namespace CIS152DataStructuresFinalWiedmier
             bool isDayValid = false;
             bool isNumberPeopleValid = false;
             bool isPhoneNumberValid = false;
+            bool isValidWeekday = false;
 
 
             string userInput = "";
@@ -103,8 +104,12 @@ namespace CIS152DataStructuresFinalWiedmier
             int reservationPhoneNumberInput = 0;
 
             PriorityQueue reservationQueue = new PriorityQueue();
+            List<Node> reservationList = new List<Node>();
+            InsertionSort sortList = new InsertionSort();
             Reservation reservationInputValidation = new Reservation();
+            DaysOfWeek daysOfWeekInputValidation = new DaysOfWeek();
             Node head = new Node();
+            
 
 
             Console.WriteLine("Do you want to insert or view the reservations?");
@@ -126,6 +131,7 @@ namespace CIS152DataStructuresFinalWiedmier
                         userInput = Console.ReadLine();
                         isValidInsertData = inputValidation(userInput);
                     }
+                    //Place where you insert data
                     if (userInput == "yes")//Branch where you insert data
                     {
                         while (insertMoreReservations == true)//Set to true
@@ -208,18 +214,15 @@ namespace CIS152DataStructuresFinalWiedmier
                                 }
                                 isPhoneNumberValid = reservationInputValidation.phoneNumberValidation(reservationPhoneNumberInput);
                             }
-                            Console.WriteLine("Before the queue additions");
-                            //Adding to the Reservation Queue
+                            
                             if (reservationQueue.size() == 0 && isNameValid == true && isRTypeValid == true && isDayValid == true && isNumberPeopleValid == true && isPhoneNumberValid == true)
-                            {
-                                Console.WriteLine("Enqueue head node");
+                            {                                
                                 Reservation inputReservationData = new Reservation(reservationNameInput, reservationTypeInput, reservationDayInput, reservationNumberOfPeopleInput, reservationPhoneNumberInput);
                                 head = reservationQueue.newNode(inputReservationData);
                                 reservationQueue.enqueue(head);
                             }
                             else
-                            {
-                                Console.WriteLine("Enqueue next node");
+                            { 
                                 Reservation inputReservationData = new Reservation(reservationNameInput, reservationTypeInput, reservationDayInput, reservationNumberOfPeopleInput, reservationPhoneNumberInput);
                                 Node incomingNode = reservationQueue.newNode(inputReservationData);
                                 reservationQueue.enqueue(head, incomingNode);
@@ -238,6 +241,7 @@ namespace CIS152DataStructuresFinalWiedmier
                             }
                         }
                     }
+                    Console.WriteLine("Queue: " + reservationQueue.printQueue());
                     //Place where you view reservations
                     Console.WriteLine("Do you want to view a reservation list?");
                     while (isValidViewData == false)//Determines validity of viewing a reservation question
@@ -246,21 +250,32 @@ namespace CIS152DataStructuresFinalWiedmier
                         userInput = Console.ReadLine();
                         isValidViewData = inputValidation(userInput);
                     }
-                    if (userInput == "yes")//Branch where you insert data
+                    if (userInput == "yes")//Branch where you view data
                     {
+                        reservationQueue.weekdayListInsert(reservationQueue.PQueue);
+
                         while (viewMoreReservations == true)//Set to true first
                         {
-                            Console.WriteLine("Place where you view reservation lists.");
                             isValidViewContinue = false;
+                            isValidWeekday = false;
 
-                            /////JUST FOR TESTING
-                            Console.WriteLine(reservationQueue.printQueue());
+                            while(isValidWeekday == false)
+                            {
+                                Console.WriteLine("(All, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday)");
+                                reservationDayInput = Console.ReadLine();
+                                if (!string.IsNullOrEmpty(reservationDayInput))
+                                {
+                                    isValidWeekday = daysOfWeekInputValidation.listSearchValidation(reservationDayInput);
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Input must not be blank.");
+                                }
+                            }
+                            reservationList = reservationQueue.getReservationList(reservationDayInput);
+                            reservationList = sortList.sort(reservationList);
+                            Console.WriteLine(reservationDayInput + " reservations: " + "\n" + daysOfWeekInputValidation.printList(reservationList));
 
-                            //validation if day inserted matches all or other days
-                                //if day m
-                                //if day t
-                                //if day w
-                                //etc
                             Console.WriteLine("View more reservations?");
                             while (isValidViewContinue == false)//Determines validity of viewling more reservation question
                             {

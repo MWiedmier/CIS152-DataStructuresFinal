@@ -21,6 +21,9 @@ namespace CIS152DataStructuresFinalWiedmier
         private LinkedList<Node> pQueue;
         public const int MAX = 70;
         private Node Head;
+        private DaysOfWeek dow;
+
+        public LinkedList<Node> PQueue { get => pQueue; set => pQueue = value; }
 
         /**************************************************************
         * Constructors
@@ -32,7 +35,8 @@ namespace CIS152DataStructuresFinalWiedmier
         ***************************************************************/
         public PriorityQueue()
         {
-            pQueue = new LinkedList<Node>();
+            PQueue = new LinkedList<Node>();
+            dow = new DaysOfWeek();
         }
 
         /**************************************************************
@@ -85,7 +89,7 @@ namespace CIS152DataStructuresFinalWiedmier
         ***************************************************************/
         public bool checkPriority(string originalString, string incomingString)
         {
-            string[] reservationType = { "VIP", "Party", "Regular" };
+            string[] reservationType = { "vip", "party", "regular" };
 
             int indexOriginal = 0;
             int indexIncoming = 0;
@@ -94,7 +98,7 @@ namespace CIS152DataStructuresFinalWiedmier
 
             foreach(string rType in reservationType)
             {
-                if (originalString == reservationType[indexOriginal])
+                if (originalString.ToLower() == reservationType[indexOriginal])
                 {
                     positionOriginal = indexOriginal;
                     break;
@@ -107,7 +111,7 @@ namespace CIS152DataStructuresFinalWiedmier
             
             foreach(string rType in reservationType)
             {
-                if (incomingString == reservationType[indexIncoming])
+                if (incomingString.ToLower() == reservationType[indexIncoming])
                 {
                     positionIncoming = indexIncoming;
                     break;
@@ -140,7 +144,7 @@ namespace CIS152DataStructuresFinalWiedmier
         ***************************************************************/
         public int size()
         {
-            queueSize = pQueue.Count;
+            queueSize = PQueue.Count;
             return queueSize;
         }
 
@@ -155,7 +159,7 @@ namespace CIS152DataStructuresFinalWiedmier
             Node queueItem;
             if (!this.isEmpty())
             {
-                queueItem = pQueue.First.Value;
+                queueItem = PQueue.First.Value;
                 return queueItem;
             }
             else
@@ -175,8 +179,8 @@ namespace CIS152DataStructuresFinalWiedmier
             Node queueItem;
             if (!this.isEmpty())
             {
-                queueItem = pQueue.First.Value;
-                pQueue.RemoveFirst();
+                queueItem = PQueue.First.Value;
+                PQueue.RemoveFirst();
                 return queueItem;
             }
             else
@@ -195,9 +199,9 @@ namespace CIS152DataStructuresFinalWiedmier
         {
             Node currentNode = head;
 
-            if (pQueue.Count == 0) //If there are no elements in queue
+            if (PQueue.Count == 0) //If there are no elements in queue
             {
-                pQueue.AddFirst(head);
+                PQueue.AddFirst(head);
                 queueSize++;
             }
         }
@@ -214,43 +218,86 @@ namespace CIS152DataStructuresFinalWiedmier
             Node insertingData = incomingData;
             int index = 0;
 
-            //Node pointingData = pQueue.First.Value;
-            if (pQueue.Count == 0) //If there are no elements in queue
+            if (PQueue.Count == 0) //If there are no elements in queue
             {
-                pQueue.AddFirst(head);
+                PQueue.AddFirst(head);
                 queueSize++;
             }
             else
             {
                 if (!checkPriority(currentNode.data.TypeOfReservation, insertingData.data.TypeOfReservation)) //If the inserted priority is greater than the starting node
                 {
-                    pQueue.AddBefore(pQueue.First, insertingData);
+                    PQueue.AddBefore(PQueue.First, insertingData);
                     queueSize++;
                 }
                 else //If the inserted data has a lesser prioirity
                 {
-                    if (pQueue.First.Next == null)//If there is only one node in the list
+                    if (PQueue.First.Next == null)//If there is only one node in the list
                     {
-                        pQueue.AddAfter(pQueue.First, insertingData);
+                        PQueue.AddAfter(PQueue.First, insertingData);
                     }
                     else//If there are more elements in the queue
                     {
-                        foreach (Node data in pQueue)
+                        foreach (Node data in PQueue)
                         {
                             index++;
                             if (!checkPriority(data.data.TypeOfReservation, insertingData.data.TypeOfReservation))//If the inserted prioirity is GREATER than the current node
                             {
-                                pQueue.AddBefore(pQueue.Find(data), insertingData);
+                                PQueue.AddBefore(PQueue.Find(data), insertingData);
                                 break;
                             }
                         }
-                        if (index == pQueue.Count)
+                        if (index == PQueue.Count)
                         {
-                            pQueue.AddLast(insertingData);
+                            PQueue.AddLast(insertingData);
                         }
                     }
                 }
             }
+        }
+
+        /**************************************************************
+        * Name: weekdayListInsert
+        * Description: This method inserts data into the weekly lists.
+        * Input: LinkedList<Node> queueData
+        * Output: 
+        ***************************************************************/
+        public void weekdayListInsert(LinkedList<Node> queueData)
+        {
+            LinkedList<Node> newQueue = new LinkedList<Node>(queueData);
+            foreach (Node data in newQueue)
+            {
+                //Node insertingNode = newQueue.First();
+                try
+                {
+                    dow.insert(data);
+                }
+                catch(Exception e)
+                {
+                    Console.WriteLine(data.data.DayOfWeek + " " + e.Message + data.data.ReservationName + "'s Reservation Dequeued.");
+                    queueData.Remove(data);
+                }
+            }
+        }
+
+        /**************************************************************
+        * Name: getReservationList
+        * Description: This method gets the list from the weekly lists.
+        * Input: string day
+        * Output: List<Node> returningList
+        ***************************************************************/
+        public List<Node> getReservationList(string day)
+        {
+            List<Node> returningList = new List<Node>();
+            try
+            {
+                returningList = dow.returnList(day);
+            }
+            catch(Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+            return returningList;
         }
 
         /**************************************************************
@@ -266,7 +313,7 @@ namespace CIS152DataStructuresFinalWiedmier
             {
                 string queueString = "";
 
-                foreach (Node str in pQueue)
+                foreach (Node str in PQueue)
                 {
                     queueString = queueString + "Reservation Name: " + str.data.ReservationName + ", Reservation Day " + str.data.DayOfWeek + ", Reservation Type " + str.data.TypeOfReservation + "\n";
                 }
@@ -277,9 +324,5 @@ namespace CIS152DataStructuresFinalWiedmier
                 throw new queueEmptyException();
             }
         }
-
-        
-
-
     }
 }

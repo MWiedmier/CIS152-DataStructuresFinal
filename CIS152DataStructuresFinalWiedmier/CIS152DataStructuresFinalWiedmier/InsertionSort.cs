@@ -9,12 +9,13 @@ namespace CIS152DataStructuresFinalWiedmier
     {
         public InsertionSort()
         {
-
         }
-        public InsertionSort(List<Node> incomingArray)
+        public List<Node> sort(List<Node> incomingList)
         {
+            List<Node> sortedList = incomingList;
+
             PriorityQueue model = new PriorityQueue();
-            Node[] arrayToSort = incomingArray.ToArray();
+            Node[] arrayToSort = incomingList.ToArray();
             int length = arrayToSort.Length;
 
             for (int i = 1; i < length; ++i)
@@ -24,11 +25,6 @@ namespace CIS152DataStructuresFinalWiedmier
                 int key = model.priorityNumber(arrayToSort[i].data.TypeOfReservation);
                 Node currentNode = arrayToSort[i];
                 int j = i - 1;
-
-                // Move elements of arr[0..i-1],
-                // that are greater than key,
-                // to one position ahead of
-                // their current position
                 while (j >= 0 && model.priorityNumber(arrayToSort[j].data.TypeOfReservation) > key)
                 {
                     arrayToSort[j + 1] = arrayToSort[j];
@@ -36,6 +32,9 @@ namespace CIS152DataStructuresFinalWiedmier
                 }
                 arrayToSort[j + 1] = currentNode;
             }
+
+            sortedList = arrayToSort.ToList();
+            return sortedList;
         }
     }
 }

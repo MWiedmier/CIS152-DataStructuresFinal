@@ -11,7 +11,7 @@ namespace CIS152DataStructuresFinalWiedmier
         {
             get
             {
-                return "Reservations are full.";
+                return "reservations are full.";
             }
         }
     }

@@ -17,8 +17,8 @@ namespace CIS152DataStructuresFinalWiedmier
         //public const int WEEK_MAX = 70;
         //public const int DAY_MAX = 10;
 
-        public const int WEEK_MAX = 7;
-        public const int DAY_MAX = 1;
+        public const int WEEK_MAX = 14;
+        public const int DAY_MAX = 2;
 
 
         private List<Node> mondayReservations;
@@ -176,6 +176,34 @@ namespace CIS152DataStructuresFinalWiedmier
                 throw new InvalidDayException();
             }
             return weekList;
+        }
+
+        /**************************************************************
+        * Name: listSearchValidation
+        * Description: Checks if input is valid
+        * Input: string listKey
+        * Output: bool
+        ***************************************************************/
+        public bool listSearchValidation(string listKey)
+        {
+            if (listKey.ToLower() == "all" || listKey.ToLower() == "monday" || listKey.ToLower() == "tuesday" || listKey.ToLower() == "wednesday" || listKey.ToLower() == "thursday" || listKey.ToLower() == "friday" || listKey.ToLower() == "saturday" || listKey.ToLower() == "sunday")
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public string printList(List<Node> dataList)
+        {
+            string listString = "";
+            foreach(Node data in dataList)
+            {
+                listString = listString + "Reservation Name: " + data.data.ReservationName + ", Reservation Day: " + data.data.DayOfWeek + ", Reservation Type: " + data.data.TypeOfReservation + ", Number of People: " + data.data.NumOfPeople + ", Phone Number: " + data.data.PhoneNumber + "\n";
+            }
+            return listString;
         }
     }
 }
