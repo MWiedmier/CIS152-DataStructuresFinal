@@ -7,7 +7,7 @@ using CIS152DataStructuresFinalWiedmier;
 
 
 /***************************************************************
-* Name        : Priority Queue
+* Name        : PriorityQueue
 * Author      : Mandy Wiedmier
 * Created     : 02/22/2023
 * Edited      : 03/22/2023

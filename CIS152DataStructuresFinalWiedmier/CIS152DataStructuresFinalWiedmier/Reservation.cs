@@ -19,17 +19,17 @@ namespace CIS152DataStructuresFinalWiedmier
         private string _typeOfReservation;
         private string _dayOfTheWeek;
         private int _numOfPeople;
-        private int _phoneNumber;
+        private long _phoneNumber;
 
         // Properties
         public string ReservationName { get => _reservationName; set => _reservationName = value; }
         public string TypeOfReservation { get => _typeOfReservation; set => _typeOfReservation = value; }
         public string DayOfWeek { get => _dayOfTheWeek; set => _dayOfTheWeek = value; }
         public int NumOfPeople { get => _numOfPeople; set => _numOfPeople = value; }
-        public int PhoneNumber { get => _phoneNumber; set => _phoneNumber = value; }
+        public long PhoneNumber { get => _phoneNumber; set => _phoneNumber = value; }
 
         public Reservation() { }
-        public Reservation(string name, string rType, string wDay, int nPeople, int phoneNumber)
+        public Reservation(string name, string rType, string wDay, int nPeople, long phoneNumber)
         {
             ReservationName = name;
             TypeOfReservation = rType;
@@ -95,16 +95,16 @@ namespace CIS152DataStructuresFinalWiedmier
         /**************************************************************
         * Name: phoneNumberValidation
         * Description: Checks if a phone number is valid and above between 1000000000 and 9999999999
-        * Input: string nPeople
+        * Input: long nPeople
         * Output: bool
         ***************************************************************/
-        public bool phoneNumberValidation(int nPeople)
+        public bool phoneNumberValidation(long nPeople)
         {
             int smallestPhoneNumber = 1000000000;
             long largestPhoneNumber = 9999999999;
             if (nPeople >= smallestPhoneNumber)
             {
-                if(nPeople <= largestPhoneNumber)
+                if (nPeople <= largestPhoneNumber)
                 {
                     return true;
                 }
@@ -118,10 +118,5 @@ namespace CIS152DataStructuresFinalWiedmier
                 return false;
             }
         }
-
-
-
-
-
     }
 }
