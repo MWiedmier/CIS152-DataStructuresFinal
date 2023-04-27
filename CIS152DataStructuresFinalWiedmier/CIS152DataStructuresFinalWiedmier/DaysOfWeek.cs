@@ -14,11 +14,11 @@ namespace CIS152DataStructuresFinalWiedmier
 {
     public class DaysOfWeek
     {
-        //public const int WEEK_MAX = 70;
-        //public const int DAY_MAX = 10;
+        public const int WEEK_MAX = 70;
+        public const int DAY_MAX = 10;
 
-        public const int WEEK_MAX = 14;
-        public const int DAY_MAX = 2;
+        //public const int WEEK_MAX = 14;
+        //public const int DAY_MAX = 2;
 
 
         private List<Node> mondayReservations;

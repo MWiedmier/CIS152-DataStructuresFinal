@@ -109,7 +109,22 @@ namespace CIS152DataStructuresFinalWiedmier
             Reservation reservationInputValidation = new Reservation();
             DaysOfWeek daysOfWeekInputValidation = new DaysOfWeek();
             Node head = new Node();
-            
+
+
+
+            Reservation reservationOne = new Reservation("Lian", "Party", "monday", 4, 1234567890);
+            Reservation reservationTwo = new Reservation("Peony", "vip", "monday", 4, 1234567890);
+            Reservation reservationThree = new Reservation("Jade", "Regular", "monday", 4, 1234567890);
+            Reservation reservationFour = new Reservation("Guy", "Party", "monday", 4, 1234567890);
+            head = reservationQueue.newNode(reservationOne);
+            Node reservationTwoData = reservationQueue.newNode(reservationTwo);
+            Node reservationThreeData = reservationQueue.newNode(reservationThree);
+            Node reservationFourData = reservationQueue.newNode(reservationFour);
+            reservationQueue.enqueue(head);
+            reservationQueue.enqueue(head, reservationTwoData);
+            reservationQueue.enqueue(head, reservationThreeData);
+            reservationQueue.enqueue(head, reservationFourData);
+
 
 
             Console.WriteLine("Do you want to insert or view the reservations?");
@@ -142,91 +157,89 @@ namespace CIS152DataStructuresFinalWiedmier
                             isDayValid = false;
                             isNumberPeopleValid = false;
                             isPhoneNumberValid = false;
-
-                            Console.WriteLine("Place where you insert reservations.");
-
-                            Console.WriteLine("Please enter a name for the reservation.");
-                            while (isNameValid == false)//Name Validation
-                            { 
-                                reservationNameInput = Console.ReadLine();
-                                if (!string.IsNullOrEmpty(reservationNameInput))
-                                {
-                                    isNameValid = true;
-                                }
-                                else
-                                {
-                                    Console.WriteLine("Name must not be blank.");
-                                }
+        
+                            //Console.WriteLine("Please enter a name for the reservation.");
+                            //while (isNameValid == false)//Name Validation
+                            //{ 
+                            //    reservationNameInput = Console.ReadLine();
+                            //    if (!string.IsNullOrEmpty(reservationNameInput))
+                            //    {
+                            //        isNameValid = true;
+                            //    }
+                            //    else
+                            //    {
+                            //        Console.WriteLine("Name must not be blank.");
+                            //    }
                                 
-                            }
-                            Console.WriteLine("Please enter a type of reservation.");
-                            while (isRTypeValid == false)//Type Validation
-                            {
-                                Console.WriteLine("(VIP, Party, or Regular)");
-                                reservationTypeInput = Console.ReadLine();
-                                if (!string.IsNullOrEmpty(reservationTypeInput))
-                                {
-                                    isRTypeValid = reservationInputValidation.typeValidation(reservationTypeInput);
-                                }
-                                else
-                                {
-                                    Console.WriteLine("Reservation type must not be blank.");
-                                }
-                            }
-                            Console.WriteLine("Please enter the day preferred.");
-                            while (isDayValid == false)//Day Validation
-                            {
-                                Console.WriteLine("(Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday)");
-                                reservationDayInput = Console.ReadLine();
-                                if (!string.IsNullOrEmpty(reservationDayInput))
-                                {
-                                    isDayValid = reservationInputValidation.dayValidation(reservationDayInput);
-                                }
-                                else
-                                {
-                                    Console.WriteLine("Preferred day must not be blank.");
-                                }
-                            }
-                            Console.WriteLine("Please enter the number of people attending (must be greater than 0).");
-                            while (isNumberPeopleValid == false)//Number of people
-                            {
-                                Console.WriteLine("(must be greater than 0).");
-                                try
-                                {
-                                    reservationNumberOfPeopleInput = Convert.ToInt32(Console.ReadLine());
-                                }
-                                catch(Exception e)
-                                {
-                                    Console.WriteLine(e.Message + " Input must be a number.");
-                                }
-                                isNumberPeopleValid = reservationInputValidation.numberPeopleValidation(reservationNumberOfPeopleInput);
-                            }
-                            while (isPhoneNumberValid == false)//Phone Number
-                            {
-                                Console.WriteLine("Please enter a phone number (digits only between 1000000000 and 9999999999).");
-                                try
-                                {
-                                    reservationPhoneNumberInput = Convert.ToInt32(Console.ReadLine());
-                                }
-                                catch (Exception e)
-                                {
-                                    Console.WriteLine(e.Message + " Input must be a number.");
-                                }
-                                isPhoneNumberValid = reservationInputValidation.phoneNumberValidation(reservationPhoneNumberInput);
-                            }
+                            //}
+                            //Console.WriteLine("Please enter a type of reservation.");
+                            //while (isRTypeValid == false)//Type Validation
+                            //{
+                            //    Console.WriteLine("(VIP, Party, or Regular)");
+                            //    reservationTypeInput = Console.ReadLine();
+                            //    if (!string.IsNullOrEmpty(reservationTypeInput))
+                            //    {
+                            //        isRTypeValid = reservationInputValidation.typeValidation(reservationTypeInput);
+                            //    }
+                            //    else
+                            //    {
+                            //        Console.WriteLine("Reservation type must not be blank.");
+                            //    }
+                            //}
+                            //Console.WriteLine("Please enter the day preferred.");
+                            //while (isDayValid == false)//Day Validation
+                            //{
+                            //    Console.WriteLine("(Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, or Sunday)");
+                            //    reservationDayInput = Console.ReadLine();
+                            //    if (!string.IsNullOrEmpty(reservationDayInput))
+                            //    {
+                            //        isDayValid = reservationInputValidation.dayValidation(reservationDayInput);
+                            //    }
+                            //    else
+                            //    {
+                            //        Console.WriteLine("Preferred day must not be blank.");
+                            //    }
+                            //}
+                            //Console.WriteLine("Please enter the number of people attending (must be greater than 0).");
+                            //while (isNumberPeopleValid == false)//Number of people
+                            //{
+                            //    Console.WriteLine("(must be greater than 0).");
+                            //    try
+                            //    {
+                            //        reservationNumberOfPeopleInput = Convert.ToInt32(Console.ReadLine());
+                            //    }
+                            //    catch(Exception e)
+                            //    {
+                            //        Console.WriteLine(e.Message + " Input must be a number.");
+                            //    }
+                            //    isNumberPeopleValid = reservationInputValidation.numberPeopleValidation(reservationNumberOfPeopleInput);
+                            //}
+                            //while (isPhoneNumberValid == false)//Phone Number
+                            //{
+                            //    Console.WriteLine("Please enter a phone number (digits only between 1000000000 and 9999999999).");
+                            //    try
+                            //    {
+                            //        reservationPhoneNumberInput = Convert.ToInt32(Console.ReadLine());
+                            //    }
+                            //    catch (Exception e)
+                            //    {
+                            //        Console.WriteLine(e.Message + " Input must be a number.");
+                            //    }
+                            //    isPhoneNumberValid = reservationInputValidation.phoneNumberValidation(reservationPhoneNumberInput);
+                            //}
                             
-                            if (reservationQueue.size() == 0 && isNameValid == true && isRTypeValid == true && isDayValid == true && isNumberPeopleValid == true && isPhoneNumberValid == true)
-                            {                                
-                                Reservation inputReservationData = new Reservation(reservationNameInput, reservationTypeInput, reservationDayInput, reservationNumberOfPeopleInput, reservationPhoneNumberInput);
-                                head = reservationQueue.newNode(inputReservationData);
-                                reservationQueue.enqueue(head);
-                            }
-                            else
-                            { 
-                                Reservation inputReservationData = new Reservation(reservationNameInput, reservationTypeInput, reservationDayInput, reservationNumberOfPeopleInput, reservationPhoneNumberInput);
-                                Node incomingNode = reservationQueue.newNode(inputReservationData);
-                                reservationQueue.enqueue(head, incomingNode);
-                            }
+                            //if (reservationQueue.size() == 0 && isNameValid == true && isRTypeValid == true && isDayValid == true && isNumberPeopleValid == true && isPhoneNumberValid == true)
+                            //{                                
+                            //    Reservation inputReservationData = new Reservation(reservationNameInput, reservationTypeInput, reservationDayInput, reservationNumberOfPeopleInput, reservationPhoneNumberInput);
+                            //    head = reservationQueue.newNode(inputReservationData);
+                            //    reservationQueue.enqueue(head);
+                            //}
+                            //else
+                            //{ 
+                            //    Reservation inputReservationData = new Reservation(reservationNameInput, reservationTypeInput, reservationDayInput, reservationNumberOfPeopleInput, reservationPhoneNumberInput);
+                            //    Node incomingNode = reservationQueue.newNode(inputReservationData);
+                            //    reservationQueue.enqueue(head, incomingNode);
+                            //}
 
                             Console.WriteLine("Insert more reservations?");
                             while (isValidInsertContinue == false)//Determines validity of first question

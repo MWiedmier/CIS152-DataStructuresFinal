@@ -25,7 +25,7 @@ namespace CIS152DataStructuresFinalWiedmier
                 int key = model.priorityNumber(arrayToSort[i].data.TypeOfReservation);
                 Node currentNode = arrayToSort[i];
                 int j = i - 1;
-                while (j >= 0 && model.priorityNumber(arrayToSort[j].data.TypeOfReservation) > key)
+                while (j >= 0 && model.priorityNumber(arrayToSort[j].data.TypeOfReservation) < key)
                 {
                     arrayToSort[j + 1] = arrayToSort[j];
                     j = j - 1;
