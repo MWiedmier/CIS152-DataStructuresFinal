@@ -268,7 +268,7 @@ namespace CIS152DataStructuresFinalWiedmier
                 }
                 catch(Exception e)
                 {
-                    Console.WriteLine(data.data.DayOfWeek + " " + e.Message + data.data.ReservationName + "'s Reservation Dequeued.");
+                    Console.WriteLine(data.data.DayOfWeek + " " + e.Message + " " + data.data.ReservationName + "'s Reservation Dequeued. Call " + data.data.PhoneNumber + " to inform them.");
                     queueData.Remove(data);
                 }
             }

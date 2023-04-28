@@ -65,35 +65,35 @@ namespace CIS152DataStructuresFinalWiedmier
             Node head = new Node();
 
             //Premade Reservations
-            //Reservation reservationOne = new Reservation("Cole", "Party", "monday", 4, 1234567890);
-            //Reservation reservationTwo = new Reservation("Olivia", "vip", "monday", 4, 1234567890);
-            //Reservation reservationThree = new Reservation("DJ", "Regular", "monday", 4, 1234567890);
-            //Reservation reservationFour = new Reservation("Isaac", "Party", "monday", 4, 1234567890);
-            //Reservation reservationFive = new Reservation("Nathan", "Party", "monday", 4, 1234567890);
-            //Reservation reservationSix = new Reservation("Grace", "vip", "monday", 4, 1234567890);
-            //Reservation reservationSeven = new Reservation("Felix", "Regular", "Tuesday", 4, 1234567890);
-            //Reservation reservationEight = new Reservation("Umar", "Party", "Tuesday", 4, 1234567890);
-            //Reservation reservationNine = new Reservation("Nick", "Party", "Tuesday", 4, 1234567890);
-            //head = reservationQueue.newNode(reservationOne);
+            Reservation reservationOne = new Reservation("Cole", "Party", "monday", 4, 1234567890);
+            Reservation reservationTwo = new Reservation("Olivia", "vip", "monday", 4, 1234567890);
+            Reservation reservationThree = new Reservation("DJ", "Regular", "monday", 4, 1234567890);
+            Reservation reservationFour = new Reservation("Isaac", "Party", "monday", 4, 1234567890);
+            Reservation reservationFive = new Reservation("Nathan", "Party", "monday", 4, 1234567890);
+            Reservation reservationSix = new Reservation("Grace", "vip", "monday", 4, 1234567890);
+            Reservation reservationSeven = new Reservation("Felix", "Regular", "Tuesday", 4, 1234567890);
+            Reservation reservationEight = new Reservation("Umar", "Party", "Tuesday", 4, 1234567890);
+            Reservation reservationNine = new Reservation("Nick", "Party", "Tuesday", 4, 1234567890);
+            head = reservationQueue.newNode(reservationOne);
             //Data to Nodes
-            //Node reservationTwoData = reservationQueue.newNode(reservationTwo);
-            //Node reservationThreeData = reservationQueue.newNode(reservationThree);
-            //Node reservationFourData = reservationQueue.newNode(reservationFour);
-            //Node reservationFiveData = reservationQueue.newNode(reservationFive);
-            //Node reservationSixData = reservationQueue.newNode(reservationSix);
-            //Node reservationSevenData = reservationQueue.newNode(reservationSeven);
-            //Node reservationEightData = reservationQueue.newNode(reservationEight);
-            //Node reservationNineData = reservationQueue.newNode(reservationNine);
+            Node reservationTwoData = reservationQueue.newNode(reservationTwo);
+            Node reservationThreeData = reservationQueue.newNode(reservationThree);
+            Node reservationFourData = reservationQueue.newNode(reservationFour);
+            Node reservationFiveData = reservationQueue.newNode(reservationFive);
+            Node reservationSixData = reservationQueue.newNode(reservationSix);
+            Node reservationSevenData = reservationQueue.newNode(reservationSeven);
+            Node reservationEightData = reservationQueue.newNode(reservationEight);
+            Node reservationNineData = reservationQueue.newNode(reservationNine);
             //Reservations to Queue
-            //reservationQueue.enqueue(head);
-            //reservationQueue.enqueue(head, reservationTwoData);
-            //reservationQueue.enqueue(head, reservationThreeData);
-            //reservationQueue.enqueue(head, reservationFourData);
-            //reservationQueue.enqueue(head, reservationFiveData);
-            //reservationQueue.enqueue(head, reservationSixData);
-            //reservationQueue.enqueue(head, reservationSevenData);
-            //reservationQueue.enqueue(head, reservationEightData);
-            //reservationQueue.enqueue(head, reservationNineData);
+            reservationQueue.enqueue(head);
+            reservationQueue.enqueue(head, reservationTwoData);
+            reservationQueue.enqueue(head, reservationThreeData);
+            reservationQueue.enqueue(head, reservationFourData);
+            reservationQueue.enqueue(head, reservationFiveData);
+            reservationQueue.enqueue(head, reservationSixData);
+            reservationQueue.enqueue(head, reservationSevenData);
+            reservationQueue.enqueue(head, reservationEightData);
+            reservationQueue.enqueue(head, reservationNineData);
 
             /**************************************************************
             * Program Start
