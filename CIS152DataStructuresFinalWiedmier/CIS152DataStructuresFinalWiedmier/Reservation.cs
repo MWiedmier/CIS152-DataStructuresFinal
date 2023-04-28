@@ -15,20 +15,39 @@ namespace CIS152DataStructuresFinalWiedmier
 {
     public class Reservation
     {
+        /**************************************************************
+        * Variables
+        ***************************************************************/
         private string _reservationName;
         private string _typeOfReservation;
         private string _dayOfTheWeek;
         private int _numOfPeople;
         private long _phoneNumber;
 
-        // Properties
+        /**************************************************************
+        * Getters and Setters
+        ***************************************************************/
         public string ReservationName { get => _reservationName; set => _reservationName = value; }
         public string TypeOfReservation { get => _typeOfReservation; set => _typeOfReservation = value; }
         public string DayOfWeek { get => _dayOfTheWeek; set => _dayOfTheWeek = value; }
         public int NumOfPeople { get => _numOfPeople; set => _numOfPeople = value; }
         public long PhoneNumber { get => _phoneNumber; set => _phoneNumber = value; }
 
+        /**************************************************************
+        * Constructors
+        ***************************************************************/
+        /**************************************************************
+        * Name: Reservation
+        * Description: Default no-arg constructor
+        * Input parameters: none
+        ***************************************************************/
         public Reservation() { }
+
+        /**************************************************************
+        * Name: Reservation
+        * Description: Constructoir that accepts 5 fields
+        * Input parameters: string name, string rType, string wDay, int nPeople, long phoneNumber
+        ***************************************************************/
         public Reservation(string name, string rType, string wDay, int nPeople, long phoneNumber)
         {
             ReservationName = name;
@@ -39,7 +58,10 @@ namespace CIS152DataStructuresFinalWiedmier
         }
 
         /**************************************************************
-        * Name: reservationTypeValidation
+        * Methods
+        ***************************************************************/
+        /**************************************************************
+        * Name: typeValidation
         * Description: Checks if reservation type is valid
         * Input: string reservationType
         * Output: bool
@@ -57,7 +79,7 @@ namespace CIS152DataStructuresFinalWiedmier
         }
 
         /**************************************************************
-        * Name: reservationDayValidation
+        * Name: dayValidation
         * Description: Checks if day is valid
         * Input: string reservationDay
         * Output: bool
@@ -95,16 +117,16 @@ namespace CIS152DataStructuresFinalWiedmier
         /**************************************************************
         * Name: phoneNumberValidation
         * Description: Checks if a phone number is valid and above between 1000000000 and 9999999999
-        * Input: long nPeople
+        * Input: long pNumber
         * Output: bool
         ***************************************************************/
-        public bool phoneNumberValidation(long nPeople)
+        public bool phoneNumberValidation(long pNumber)
         {
             int smallestPhoneNumber = 1000000000;
             long largestPhoneNumber = 9999999999;
-            if (nPeople >= smallestPhoneNumber)
+            if (pNumber >= smallestPhoneNumber)
             {
-                if (nPeople <= largestPhoneNumber)
+                if (pNumber <= largestPhoneNumber)
                 {
                     return true;
                 }

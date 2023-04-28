@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using CIS152DataStructuresFinalWiedmier;
-
 
 /***************************************************************
 * Name        : PriorityQueue
@@ -17,12 +12,17 @@ namespace CIS152DataStructuresFinalWiedmier
 {
     public class PriorityQueue
     {
+        /**************************************************************
+        * Variables
+        ***************************************************************/
         private int queueSize;
         private LinkedList<Node> pQueue;
         public const int MAX = 70;
-        private Node Head;
         private DaysOfWeek dow;
 
+        /**************************************************************
+        * Getters and Setters
+        ***************************************************************/
         public LinkedList<Node> PQueue { get => pQueue; set => pQueue = value; }
 
         /**************************************************************
@@ -45,22 +45,21 @@ namespace CIS152DataStructuresFinalWiedmier
         /**************************************************************
         * Name: newNode
         * Description: Makes a new node
-        * Input: 
+        * Input: Reservation inputData
         * Output: node newData
         ***************************************************************/
         public Node newNode(Reservation inputData)
         {
             Node newData = new Node();
             newData.data = inputData;
-
             return newData;
         }
 
         /**************************************************************
         * Name: priorityNumber
         * Description: Compares the priority of queue items
-        * Input: 
-        * Output: bool
+        * Input: string priority
+        * Output: int pNumber
         ***************************************************************/
         public int priorityNumber(string priority)
         {
@@ -80,17 +79,15 @@ namespace CIS152DataStructuresFinalWiedmier
             return pNumber;
         }
 
-
         /**************************************************************
         * Name: checkPriority
         * Description: Compares the priority of queue items
-        * Input: 
+        * Input: string originalString, string incomingString
         * Output: bool
         ***************************************************************/
         public bool checkPriority(string originalString, string incomingString)
         {
             string[] reservationType = { "vip", "party", "regular" };
-
             int indexOriginal = 0;
             int indexIncoming = 0;
             int positionOriginal = 0;
@@ -108,7 +105,6 @@ namespace CIS152DataStructuresFinalWiedmier
                     indexOriginal++;
                 }
             }
-            
             foreach(string rType in reservationType)
             {
                 if (incomingString.ToLower() == reservationType[indexIncoming])
@@ -121,13 +117,11 @@ namespace CIS152DataStructuresFinalWiedmier
                     indexIncoming++;
                 }
             }
-            
-            //Returns True if Incoming Node has a lesser priority
-            return positionOriginal <= positionIncoming;
+            return positionOriginal <= positionIncoming; //Returns True if Incoming Node has a lesser priority
         }
         /**************************************************************
         * Name: isEmpty
-        * Description: Checks to see if queue is empty
+        * Description: Checks if queue is empty
         * Input: 
         * Output: bool
         ***************************************************************/
@@ -152,7 +146,7 @@ namespace CIS152DataStructuresFinalWiedmier
 		* Name: peek
 		* Description: Checks what the first higest priority object is in the queue. If queue is empty it will throw an empty exception.
 		* Input: 
-		* Output: string item
+		* Output: Node queueItem
 		***************************************************************/
         public Node peek()
         {
@@ -164,7 +158,7 @@ namespace CIS152DataStructuresFinalWiedmier
             }
             else
             {
-                throw new queueEmptyException();
+                throw new QueueEmptyException();
             }
         }
 
@@ -172,7 +166,7 @@ namespace CIS152DataStructuresFinalWiedmier
 		* Name: dequeue
 		* Description: This method removes the first highest priority object of the queue. If queue is empty it will throw an empty exception.
 		* Input: 
-		* Output: string item
+		* Output: Node item
 		***************************************************************/
         public Node dequeue()
         {
@@ -185,7 +179,7 @@ namespace CIS152DataStructuresFinalWiedmier
             }
             else
             {
-                throw new queueEmptyException();
+                throw new QueueEmptyException();
             }
         }
 
@@ -208,8 +202,8 @@ namespace CIS152DataStructuresFinalWiedmier
 
         /**************************************************************
 		* Name: enqueue
-		* Description: This method adds an object to the back of the queue.
-		* Input: Node head, int jobNum, char priority
+		* Description: This method adds an object to the queue based on priority.
+		* Input: Node head, Node incomingData
 		* Output: 
 		***************************************************************/
         public void enqueue(Node head, Node incomingData)
@@ -321,7 +315,7 @@ namespace CIS152DataStructuresFinalWiedmier
             }
             else
             {
-                throw new queueEmptyException();
+                throw new QueueEmptyException();
             }
         }
     }

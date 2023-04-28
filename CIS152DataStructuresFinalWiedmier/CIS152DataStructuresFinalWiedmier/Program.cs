@@ -1,13 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 /**************************************************************
 * Name : Final Project- Reservation Tracking
 * Author: Mandy Wiedmier
-* Created : 04/24/2023
+* Created : 03/22/2023
 * Course: CIS 152 - Data Structure
 * Version: 1.0
 * OS: Windows 11
@@ -27,14 +24,11 @@ namespace CIS152DataStructuresFinalWiedmier
 {
     class Program
     {
-        /**************************************************************
-        * Name: Main
-        * Description: The main method of the program
-        * Input: 
-        * Output:
-        ***************************************************************/
         static void Main(string[] args)
         {
+            /**************************************************************
+            * Variables
+            ***************************************************************/
             //Main Path User Input Validation
             bool isValidViewOrInsert = false; //Insert or view reservations?
             bool isValidInsertData = false; //Insert reservation?
@@ -70,7 +64,6 @@ namespace CIS152DataStructuresFinalWiedmier
             DaysOfWeek daysOfWeekInputValidation = new DaysOfWeek();
             Node head = new Node();
 
-
             //Premade Reservations
             //Reservation reservationOne = new Reservation("Cole", "Party", "monday", 4, 1234567890);
             //Reservation reservationTwo = new Reservation("Olivia", "vip", "monday", 4, 1234567890);
@@ -82,7 +75,7 @@ namespace CIS152DataStructuresFinalWiedmier
             //Reservation reservationEight = new Reservation("Umar", "Party", "Tuesday", 4, 1234567890);
             //Reservation reservationNine = new Reservation("Nick", "Party", "Tuesday", 4, 1234567890);
             //head = reservationQueue.newNode(reservationOne);
-
+            //Data to Nodes
             //Node reservationTwoData = reservationQueue.newNode(reservationTwo);
             //Node reservationThreeData = reservationQueue.newNode(reservationThree);
             //Node reservationFourData = reservationQueue.newNode(reservationFour);
@@ -91,7 +84,7 @@ namespace CIS152DataStructuresFinalWiedmier
             //Node reservationSevenData = reservationQueue.newNode(reservationSeven);
             //Node reservationEightData = reservationQueue.newNode(reservationEight);
             //Node reservationNineData = reservationQueue.newNode(reservationNine);
-
+            //Reservations to Queue
             //reservationQueue.enqueue(head);
             //reservationQueue.enqueue(head, reservationTwoData);
             //reservationQueue.enqueue(head, reservationThreeData);
@@ -102,7 +95,9 @@ namespace CIS152DataStructuresFinalWiedmier
             //reservationQueue.enqueue(head, reservationEightData);
             //reservationQueue.enqueue(head, reservationNineData);
 
-
+            /**************************************************************
+            * Program Start
+            ***************************************************************/
             Console.WriteLine("Do you want to insert or view the reservations?");
             while (isValidViewOrInsert == false)//Determines validity of first question
             {
@@ -160,7 +155,6 @@ namespace CIS152DataStructuresFinalWiedmier
                                 {
                                     Console.WriteLine("Name must not be blank.");
                                 }
-
                             }
                             Console.WriteLine("Please enter a type of reservation.");
                             while (isRTypeValid == false)//Type Validation
@@ -336,6 +330,9 @@ namespace CIS152DataStructuresFinalWiedmier
                 }
             }
             Console.WriteLine("Thank you for your input. Have a nice day.");
+            /**************************************************************
+            * Program End
+            ***************************************************************/
         }
     }
 }

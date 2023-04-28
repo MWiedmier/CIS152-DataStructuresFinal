@@ -1,7 +1,12 @@
 ﻿using System;
-using System.Linq;
 using CIS152DataStructuresFinalWiedmier;
 using Xunit;
+
+/***************************************************************
+* Name        : PriorityQueueUnitTests
+* Author      : Mandy Wiedmier
+* Created      : 04/24/2023
+***************************************************************/
 
 namespace CIS152DataStructuresFinalWiedmierUnitTests
 {
@@ -120,7 +125,7 @@ namespace CIS152DataStructuresFinalWiedmierUnitTests
             PriorityQueue myQueue = new PriorityQueue();
             // ACT
             // ASSERT
-            Assert.Throws<queueEmptyException>(() => myQueue.dequeue());
+            Assert.Throws<QueueEmptyException>(() => myQueue.dequeue());
         }
 
         [Fact]
@@ -146,7 +151,7 @@ namespace CIS152DataStructuresFinalWiedmierUnitTests
             PriorityQueue myQueue = new PriorityQueue();
             // ACT
             // ASSERT
-            Assert.Throws<queueEmptyException>(() => myQueue.peek());
+            Assert.Throws<QueueEmptyException>(() => myQueue.peek());
         }
 
         [Fact]
@@ -156,7 +161,7 @@ namespace CIS152DataStructuresFinalWiedmierUnitTests
             PriorityQueue myQueue = new PriorityQueue();
             // ACT
             // ASSERT
-            Assert.Throws<queueEmptyException>(() => myQueue.printQueue());
+            Assert.Throws<QueueEmptyException>(() => myQueue.printQueue());
         }
 
         [Fact]

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 /***************************************************************
 * Name        : DaysOfWeek
@@ -14,13 +10,13 @@ namespace CIS152DataStructuresFinalWiedmier
 {
     public class DaysOfWeek
     {
+        /**************************************************************
+        * Variables
+        ***************************************************************/
+        //Max Values for Lists
         public const int WEEK_MAX = 70;
         public const int DAY_MAX = 10;
-
-        //public const int WEEK_MAX = 14;
-        //public const int DAY_MAX = 2;
-
-
+        //List Setup
         private List<Node> mondayReservations;
         private List<Node> tuesdayReservations;
         private List<Node> wednesdayReservations;
@@ -30,6 +26,14 @@ namespace CIS152DataStructuresFinalWiedmier
         private List<Node> sundayReservations;
         private List<Node> allReservations;
 
+        /**************************************************************
+        * Constructors
+        ***************************************************************/
+        /**************************************************************
+        * Name: DaysOfWeek
+        * Description: Default no-arg constructor. Sets all the Lists.
+        * Input parameters: none
+        ***************************************************************/
         public DaysOfWeek()
         {
             mondayReservations = new List<Node>();
@@ -42,11 +46,19 @@ namespace CIS152DataStructuresFinalWiedmier
             allReservations = new List<Node>();
         }
 
-
+        /**************************************************************
+        * Methods
+        ***************************************************************/
+        /**************************************************************
+        * Name: insert
+        * Description: Inserts a node to a list based on the day of the week
+        * Input: Node reservation
+        * Output: 
+        ***************************************************************/
         public void insert(Node reservation)
         {
             //Add to specific day lists and All list
-            if(reservation.data.DayOfWeek.ToLower() == "monday")
+            if(reservation.data.DayOfWeek.ToLower() == "monday")//Checks if day matches and if that list is full
             {
                 if(mondayReservations.Count < DAY_MAX)
                 {
@@ -58,7 +70,7 @@ namespace CIS152DataStructuresFinalWiedmier
                     throw new ReservationFullException();
                 }
             }
-            else if (reservation.data.DayOfWeek.ToLower() == "tuesday")
+            else if (reservation.data.DayOfWeek.ToLower() == "tuesday")//Checks if day matches and if that list is full
             {
                 if (mondayReservations.Count < DAY_MAX)
                 {
@@ -70,7 +82,7 @@ namespace CIS152DataStructuresFinalWiedmier
                     throw new ReservationFullException();
                 }
             }
-            else if (reservation.data.DayOfWeek.ToLower() == "wednesday")
+            else if (reservation.data.DayOfWeek.ToLower() == "wednesday")//Checks if day matches and if that list is full
             {
                 if (mondayReservations.Count < DAY_MAX)
                 {
@@ -82,7 +94,7 @@ namespace CIS152DataStructuresFinalWiedmier
                     throw new ReservationFullException();
                 }
             }
-            else if (reservation.data.DayOfWeek.ToLower() == "thursday")
+            else if (reservation.data.DayOfWeek.ToLower() == "thursday")//Checks if day matches and if that list is full
             {
                 if (mondayReservations.Count < DAY_MAX)
                 {
@@ -94,7 +106,7 @@ namespace CIS152DataStructuresFinalWiedmier
                     throw new ReservationFullException();
                 }
             }
-            else if (reservation.data.DayOfWeek.ToLower() == "friday")
+            else if (reservation.data.DayOfWeek.ToLower() == "friday")//Checks if day matches and if that list is full
             {
                 if (mondayReservations.Count < DAY_MAX)
                 {
@@ -106,7 +118,7 @@ namespace CIS152DataStructuresFinalWiedmier
                     throw new ReservationFullException();
                 }
             }
-            else if (reservation.data.DayOfWeek.ToLower() == "saturday")
+            else if (reservation.data.DayOfWeek.ToLower() == "saturday")//Checks if day matches and if that list is full
             {
                 if (mondayReservations.Count < DAY_MAX)
                 {
@@ -118,7 +130,7 @@ namespace CIS152DataStructuresFinalWiedmier
                     throw new ReservationFullException();
                 }
             }
-            else if (reservation.data.DayOfWeek.ToLower() == "sunday")
+            else if (reservation.data.DayOfWeek.ToLower() == "sunday")//Checks if day matches and if that list is full
             {
                 if (mondayReservations.Count < DAY_MAX)
                 {
@@ -136,6 +148,12 @@ namespace CIS152DataStructuresFinalWiedmier
             }
         }
 
+        /**************************************************************
+        * Name: returnList
+        * Description: Inserts a node to a list based on the day of the week
+        * Input: string key
+        * Output: List<Node> weekList
+        ***************************************************************/
         public List<Node> returnList(string key)
         {
             List<Node> weekList = new List<Node>();
@@ -196,6 +214,12 @@ namespace CIS152DataStructuresFinalWiedmier
             }
         }
 
+        /**************************************************************
+        * Name: printList
+        * Description: Creates a string based on the nodes of the list inserted
+        * Input: List<Node> dataList
+        * Output: string listString
+        ***************************************************************/
         public string printList(List<Node> dataList)
         {
             string listString = "";

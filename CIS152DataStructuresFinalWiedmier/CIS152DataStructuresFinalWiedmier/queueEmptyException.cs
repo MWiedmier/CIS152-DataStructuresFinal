@@ -1,10 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+
+/***************************************************************
+* Name        : QueueEmptyException
+* Author      : Mandy Wiedmier
+* Created      : 03/22/2023
+***************************************************************/
 
 namespace CIS152DataStructuresFinalWiedmier
 {
-    public class queueEmptyException : Exception
+    public class QueueEmptyException : Exception
     {
         public override string Message
         {

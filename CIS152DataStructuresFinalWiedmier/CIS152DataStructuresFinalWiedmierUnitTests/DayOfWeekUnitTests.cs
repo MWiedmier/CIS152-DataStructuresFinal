@@ -1,10 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using CIS152DataStructuresFinalWiedmier;
 using Xunit;
+
+/***************************************************************
+* Name        : DayOfWeekUnitTests
+* Author      : Mandy Wiedmier
+* Created      : 04/24/2023
+***************************************************************/
 
 namespace CIS152DataStructuresFinalWiedmierUnitTests
 {

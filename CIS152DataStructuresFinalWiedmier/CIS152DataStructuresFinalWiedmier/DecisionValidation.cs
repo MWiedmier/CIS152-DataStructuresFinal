@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-/***************************************************************
+﻿/***************************************************************
 * Name        : DecisionValidation
 * Author      : Mandy Wiedmier
 * Created      : 04/27/2023
@@ -14,6 +8,14 @@ namespace CIS152DataStructuresFinalWiedmier
 {
     public class DecisionValidation
     {
+        /**************************************************************
+        * Constructors
+        ***************************************************************/
+        /**************************************************************
+        * Name: DecisionValidation
+        * Description: Default no-arg constructor.
+        * Input parameters: none
+        ***************************************************************/
         public DecisionValidation(){}
 
         /**************************************************************
